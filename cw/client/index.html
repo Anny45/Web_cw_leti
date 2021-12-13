@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Бурёнка</title>
+</head>
+<body>
+        <table>
+            <td id="gg">
+                <div id = "description">
+                    <p id='username'>Имя пользователя: </p>
+                    <p id='level'>Уровень: 1</p>
+                    <p id='score'>Очки: 0</p>
+                    <p> За Бурёнкой гонятся пришельцы!!! Действительно, не часто можно встретить курящую корову...</p>
+                    <p>Если Бурёнка съест все сено, они не смогут ее украсть.</p>
+                    <p>Помоги Бурёнке найти все сено!</p>
+                    <script>
+                        let name2 = document.getElementById('username')
+                        name2.innerHTML = "User name: " + localStorage.getItem("username")
+                    </script>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <canvas id="canvasId" width="800" height="800"></canvas>
+                    <script src="mapManager.js"></script>
+                    <script src="gameManager.js"></script>
+                    <script src="spriteManager.js"></script>
+                    <script src="object.js"></script>
+                    <script src="eventsManager.js"></script>
+                    <script src="physicsManager.js"></script>
+                    <script src="soundManager.js"></script>
+                    <script src="handler.js"></script>
+                    <script>
+                        let canvas = document.getElementById("canvasId");
+                        let ctx = canvas.getContext("2d");
+                        soundManager.init();
+                        soundManager.loadArray(["indigo-946.mp3", "moo.mp3"]);
+                        soundManager.play("indigo-946.mp3", { looping: true });
+                        gameManager.loadAll(ctx);
+                        gameManager.play(ctx);
+
+                    </script>
+                </div>
+            </td>
+
+        </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Регистрация</title>
+</head>
+<body>
+<form class="form" action="index.html" method="get">
+    <p class="form_title">Спасти Бурёнку</p>
+    <div class="form_group">
+        <label for="name" class="form_label">Введите имя:</label>
+        <input id="name" maxlength="10" class="form_input" required type="text" placeholder="Имя пользователя"/>
+    </div>
+    <input class="form_button" type="submit" value="Начать игру" onclick="store()">
+</form>
+<script>
+    function store() {
+        let new_name = document.getElementById('name').value
+        localStorage.setItem('username',  new_name)
+        let name = document.getElementById('username')
+        name.innerHTML = "User name: " + new_name
+    }
+</script>
+</body>
+</html>
